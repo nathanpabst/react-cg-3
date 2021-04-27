@@ -1,0 +1,20 @@
+Section 31. How React Works
+    React allows you to create re-usable and reactive components consisting of HTML & JavaScript (and CSS)
+    With React, we are building our own custom HTML elements. React is all about components 
+    (which are custom HTML elements) and is accomplished using a declarative approach 
+    (rather than an imperative approach...how it is done with JS...step by step instructions). 
+    i.e. we define the desired target state(s) and let React figure out the actual JS DOM instructions. 
+
+Section 30. Introducing JSX
+    JSX (JavaScript XML) is essentially HTML code inside of JavaScript. 
+
+Section 29. Analyzing a standard React Project
+    SRC is where all React code (ultimately this code is all JavaScript) will be written. 
+    A transformed version of the code in the index.js file is the first to be executed 
+    when the SPA is loaded (via the 'npm run start' command). This 'transformed' version is done 
+    behind the scenes by scripts that transform and optimize the code. The 'npm run start' command
+    (a.k.a. the development server: local host) watches the 'root' directs to the index.html file 
+    found within the public folder. The App.js file is a component. In order to render/use the App.js 
+    component, we must export the file in App.js and import it in this file (index.js) or the file in 
+    which you plan to use the code. The index.html file takes instruction from the index.js file. The
+    render method within index.js instructs the .html file to display the <App /> component in the 'root' div.
