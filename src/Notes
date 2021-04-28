@@ -1,3 +1,15 @@
+Section 33. writing more complex JSX code
+    You can only have one single root element per return statement/JSX code snippet.
+    Workaround...create one div element to contain any additional elements that you need. 
+
+
+Section 32. building a first custom component
+    A component, in React, is merely a JavaScript function. 
+    Always use the following steps...
+    1. Create a component (folder, file, and function)
+    2. Export the component
+    3. Import the component in the file where you want to use it. e.g. App.js 
+
 Section 31. How React Works
     React allows you to create re-usable and reactive components consisting of HTML & JavaScript (and CSS)
     With React, we are building our own custom HTML elements. React is all about components 
