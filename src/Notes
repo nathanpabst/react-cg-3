@@ -1,3 +1,7 @@
+Section 36. passing data via props
+    components can be truly re-usable and configurable by using the concept of 'props'. (shorthand for properties)
+    i.e. passing data from one component to another.   
+
 Section 33. writing more complex JSX code
     You can only have one single root element per return statement/JSX code snippet.
     Workaround...create one div element to contain any additional elements that you need. 
