@@ -1,3 +1,20 @@
+Assignment One...
+Expenses...
+1. Create a new component, in the components folder, called Expenses that will be responsible for displaying our expenses
+2. export the Expenses function
+3. write a function called Expenses containing a root JSX element (div) in the return statement
+4. import the ExpenseItems component 
+5. paste the ExpenseItems self-closing components from App.js into the div
+6. add props to the Expenses function to make the expense item properties from App.js available   
+7. import the Expenses.css file & add a className to the root element 
+App.js...
+1. import the Expenses component
+2. remove the ExpenseItems import statement
+3. delete the ExpenseItems self-closing components from App.js (this was moved into the root JSX element of the Expenses component.   
+4. forward the props from App.js to the Expenses component by adding a self-closing Expenses component within the root element of App.js
+    Expenses should include an 'items' prop pointing to the const 'expenses' array
+
+
 Section 36. passing data via props
     components can be truly re-usable and configurable by using the concept of 'props'. (shorthand for properties)
     i.e. passing data from one component to another.   
