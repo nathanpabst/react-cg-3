@@ -1,3 +1,8 @@
+Section 39. The concept of Composition ('children props')...
+    About combining components & extracting HTML/JSX code. For example, creating a wrapper component
+    i.e. Card that can be used often to reduce code & style duplication and keep components clean.
+    the building blocks that make up a UI 
+
 Assignment One...
 Expenses...
 1. Create a new component, in the components folder, called Expenses that will be responsible for displaying our expenses
@@ -13,7 +18,6 @@ App.js...
 3. delete the ExpenseItems self-closing components from App.js (this was moved into the root JSX element of the Expenses component.   
 4. forward the props from App.js to the Expenses component by adding a self-closing Expenses component within the root element of App.js
     Expenses should include an 'items' prop pointing to the const 'expenses' array
-
 
 Section 36. passing data via props
     components can be truly re-usable and configurable by using the concept of 'props'. (shorthand for properties)
