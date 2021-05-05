@@ -1,3 +1,6 @@
+Section 43. Alternative Function Syntax (arrow functions)...
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+EX. syntax: const App = () => {}
 Section 39. The concept of Composition ('children props')...
     About combining components & extracting HTML/JSX code. For example, creating a wrapper component
     i.e. Card that can be used often to reduce code & style duplication and keep components clean.
