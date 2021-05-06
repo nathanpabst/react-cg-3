@@ -1,0 +1,60 @@
+Section 43. Alternative Function Syntax (arrow functions)...
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+EX. syntax: const App = () => {}
+Section 39. The concept of Composition ('children props')...
+    About combining components & extracting HTML/JSX code. For example, creating a wrapper component
+    i.e. Card that can be used often to reduce code & style duplication and keep components clean.
+    the building blocks that make up a UI 
+
+Assignment One...
+Expenses...
+1. Create a new component, in the components folder, called Expenses that will be responsible for displaying our expenses
+2. export the Expenses function
+3. write a function called Expenses containing a root JSX element (div) in the return statement
+4. import the ExpenseItems component 
+5. paste the ExpenseItems self-closing components from App.js into the div
+6. add props to the Expenses function to make the expense item properties from App.js available   
+7. import the Expenses.css file & add a className to the root element 
+App.js...
+1. import the Expenses component
+2. remove the ExpenseItems import statement
+3. delete the ExpenseItems self-closing components from App.js (this was moved into the root JSX element of the Expenses component.   
+4. forward the props from App.js to the Expenses component by adding a self-closing Expenses component within the root element of App.js
+    Expenses should include an 'items' prop pointing to the const 'expenses' array
+
+Section 36. passing data via props
+    components can be truly re-usable and configurable by using the concept of 'props'. (shorthand for properties)
+    i.e. passing data from one component to another.   
+
+Section 33. writing more complex JSX code
+    You can only have one single root element per return statement/JSX code snippet.
+    Workaround...create one div element to contain any additional elements that you need. 
+
+
+Section 32. building a first custom component
+    A component, in React, is merely a JavaScript function. 
+    Always use the following steps...
+    1. Create a component (folder, file, and function)
+    2. Export the component
+    3. Import the component in the file where you want to use it. e.g. App.js 
+
+Section 31. How React Works
+    React allows you to create re-usable and reactive components consisting of HTML & JavaScript (and CSS)
+    With React, we are building our own custom HTML elements. React is all about components 
+    (which are custom HTML elements) and is accomplished using a declarative approach 
+    i.e. we define the desired target state(s) and let React figure out the actual JS DOM instructions. 
+    (rather than an imperative approach...how it is done with JS...clear step by step instructions). 
+
+Section 30. Introducing JSX
+    JSX (JavaScript XML) is essentially HTML code inside of JavaScript. 
+
+Section 29. Analyzing a standard React Project
+    SRC is where all React code (ultimately this code is all JavaScript) will be written. 
+    A transformed version of the code in the index.js file is the first to be executed 
+    when the SPA is loaded (via the 'npm run start' command). This 'transformed' version is done 
+    behind the scenes by scripts that transform and optimize the code. The 'npm run start' command
+    (a.k.a. the development server: local host) watches the 'root' directs to the index.html file 
+    found within the public folder. The App.js file is a component. In order to render/use the App.js 
+    component, we must export the file in App.js and import it in this file (index.js) or the file in 
+    which you plan to use the code. The index.html file takes instruction from the index.js file. The
+    render method within index.js instructs the .html file to display the <App /> component in the 'root' div.
