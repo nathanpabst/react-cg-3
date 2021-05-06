@@ -1,3 +1,7 @@
+_______Section 4 notes: React State & Working with Events__________
+HTML Button Element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button 
+
+_______Section 3 notes: React Basics & Working with Components__________
 Section 43. Alternative Function Syntax (arrow functions)...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 EX. syntax: const App = () => {}
