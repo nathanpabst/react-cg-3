@@ -1,5 +1,27 @@
 _______Section 4 notes: React State & Working with Events__________
-HTML Button Element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button 
+
+Module 48. Working with State...
+    To prompt react to re-render/re-evaluate a component, we import the 'useState' function which is 
+    provided by the react library. EX. import React, {useState} from 'react'; --a.k.a. a react hook
+    All react hooks start with the prefix 'use...' and must be called within the component function 
+    (NOTE...hooks should not be used within nested functions). the useState function allows the component 
+    to be called again and to assign values as 'state', when we call the function. useState returns an 
+    array containing the variable/value and an updating function. We use array destructing
+    to accomplish this. EX. const [] = useState(props.title)
+
+
+Module 47. How Component Functions are Executed...
+    Components are regular functions that return JSX. Functions must be called. We use these functions
+    like HTML elements in the JSX code. Using a component, within the return statement, is similar to a 
+    function call. By using components in JSX code, we make react aware of the component functions. when
+    react evaluates the JSX code it will call each component function and evaluate its JSX code until all 
+    of the code has been called/evaluated. It then react evaluates the overall result and translates it to 
+    DOM instructions which then render on the screen. 
+    React starts with the index.js file (reactDOM.render(<App />, document.getElementById('root')))
+    This is all done when the application is initially rendered...it doesn't repeat itself. In order to update
+    or re-render a component, we use the concept of 'State'. 
+
+Module 46. HTML Button Element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button 
 
 _______Section 3 notes: React Basics & Working with Components__________
 Section 43. Alternative Function Syntax (arrow functions)...
