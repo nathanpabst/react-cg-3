@@ -6,8 +6,9 @@ Module 48. Working with State...
     All react hooks start with the prefix 'use...' and must be called within the component function 
     (NOTE...hooks should not be used within nested functions). the useState function allows the component 
     to be called again and to assign values as 'state', when we call the function. useState returns an 
-    array containing the variable/value and an updating function. We use array destructing
-    to accomplish this. EX. const [] = useState(props.title)
+    array containing the variable/value and an updating function. We use array destructing to accomplish this.
+    EX. const [title, setTitle] = useState(props.title) --order matters here...'title' is the managed value 
+    the second element is a function that we use to set the updated state value 
 
 
 Module 47. How Component Functions are Executed...
