@@ -8,7 +8,10 @@ Module 48. Working with State...
     to be called again and to assign values as 'state', when we call the function. useState returns an 
     array containing the variable/value and an updating function. We use array destructing to accomplish this.
     EX. const [title, setTitle] = useState(props.title) --order matters here...'title' is the managed value 
-    the second element is a function that we use to set the updated state value 
+    the second element is a function that we use to set the updated state value. 
+    Use the concept of 'state', if you have data which may change and will need to be reflected in the UI.
+    With state you can set and change values and when you change values, (unlike a variable) React will re-evaluate the component
+    in which the state was registered. 
 
 
 Module 47. How Component Functions are Executed...
