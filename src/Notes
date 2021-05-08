@@ -1,5 +1,19 @@
 _______Section 4 notes: React State & Working with Events__________
 
+Module 49. Closer look at the 'useState' hook...
+    'useState' registers some 'value' as a new state for the component in which it is being called.
+    More specifically...React registers or assigns a unique state value for each component instance. 
+    Each instance of a component has its own unique definition of state, which is detached from the state values 
+    of all the other component instances. For example, we have one definition of the 'ExpenseItem' component,
+    the function will be called 4 times (as per instruction within the Expenses.js file). Each time the function is called,
+    a new and separate definition of state is created and managed independently by React. When a user interacts with the UI 
+    to modify the value of a component instance--via a click event--only the definition of state/value for this particular 
+    instance will be update...the state values for each of the remaining instances will remain un-changed. 
+    Additionally, because 'state' is changed on a per component/instance basis, whenever the state of one component instance 
+    changes...React will only update and re-evaluate that specific instance.
+    
+    The 'const' keyword is used... 
+
 Module 48. Working with State...
     To prompt react to re-render/re-evaluate a component, we import the 'useState' function which is 
     provided by the react library. EX. import React, {useState} from 'react'; --a.k.a. a react hook
@@ -12,7 +26,6 @@ Module 48. Working with State...
     Use the concept of 'state', if you have data which may change and will need to be reflected in the UI.
     With state you can set and change values and when you change values, (unlike a variable) React will re-evaluate the component
     in which the state was registered. 
-
 
 Module 47. How Component Functions are Executed...
     Components are regular functions that return JSX. Functions must be called. We use these functions
