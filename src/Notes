@@ -7,12 +7,29 @@ Module 49. Closer look at the 'useState' hook...
     of all the other component instances. For example, we have one definition of the 'ExpenseItem' component,
     the function will be called 4 times (as per instruction within the Expenses.js file). Each time the function is called,
     a new and separate definition of state is created and managed independently by React. When a user interacts with the UI 
-    to modify the value of a component instance--via a click event--only the definition of state/value for this particular 
-    instance will be update...the state values for each of the remaining instances will remain un-changed. 
+    to modify the value of a component instance--via a click event listener--only the definition of state/value for this particular 
+    instance will be updated...the state values for each of the remaining instances will remain un-changed. 
     Additionally, because 'state' is changed on a per component/instance basis, whenever the state of one component instance 
     changes...React will only update and re-evaluate that specific instance.
-    
-    The 'const' keyword is used... 
+    When using the 'useState' function, we do not assign a value using the '=' operator (so using the 'const' keyword...iso'kay)
+    ...we call the state updating function. react is managing the concrete value somewhere else. 
+    ...React keeps track of the instance of 'useState' within each component...when useState is called for the first time
+    ...the argument, which in this case is '(props.title)', is taken as the initial value
+    ...if the component is re-executed...react will not re-initialize the state
+    ...react detects that 'state' was initialized in the past and will grab/return the latest version of state
+    ...sooooooo the '(props.title)' argument inserted into the useState() function is only considered the first time a component 
+    instance is executed.
+    Simply put...you register a state value with the 'useState()' function
+    ...the 'useState()' function returns two values...the value itself and an updating function.
+    ...the updating function will be called whenever the state value should change 
+    ...and you use the first element/value when you want to use the state value as output in the JSX code. 
+    ...React will do the rest...it will re-execute the component function and re-evaluate the JSX code whenever the state changes. 
+    ...Sans 'state', the UI will never change. 
+    ...By using 'state' and event listeners, we ensure that the application can respond to user input and will result in a 
+    visible update change on the screen.    
+    More info on State and lifecycle methods: https://reactjs.org/docs/state-and-lifecycle.html
+    More info on the 'useState' hook: https://reactjs.org/docs/hooks-reference.html#usestate
+
 
 Module 48. Working with State...
     To prompt react to re-render/re-evaluate a component, we import the 'useState' function which is 
