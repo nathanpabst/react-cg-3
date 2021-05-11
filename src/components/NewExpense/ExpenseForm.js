@@ -3,37 +3,31 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-  // const [enteredTitle, setEnteredTitle] = useState('');
-  // const [enteredAmount, setEnteredAmount] = useState('');
-  // const [enteredDate, setEnteredDate] = useState('');
-  const [userInput, setUserInput] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: '',
-  });
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+  
+  // code for option 2 seen below...primarily used when you also depend upon the previous state
+  // const [userInput, setUserInput] = useState({
+  //   enteredTitle: '',
+  //   enteredAmount: '',
+  //   enteredDate: '',
+  // });
 
   const titleChangeHandler = (event) => {
-    //setEnteredTitle(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
-    });
+    setEnteredTitle(event.target.value);
+    // option 2...
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredTitle: event.target.value };
+    //  });
   };
 
   const amountChangeHandler = (event) => {
-    // setEnteredAmount(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredAmount: event.target.value,
-    });
+    setEnteredAmount(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
-    //setEnteredDate(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
-    });
+    setEnteredDate(event.target.value);
   };
 
   return (

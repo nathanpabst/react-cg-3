@@ -1,4 +1,12 @@
 _______Section 4 notes: React State & Working with Events__________
+Module 55. 
+    IMPORTANT: Whenever you need to update state and are dependant upon the value of the previous state, use the following syntax. 
+    This is the best practice because React guarantees that the state snapshot will always be the latest version (considering all scheduled state updates)
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
+     }); 
+     ...best practice because React schedules state updates (not instantly). sooooooo if you are not using the anonymous arrow function syntax/example, and 
+     schedule several state updates at the same time, you could be depending on an outdated or incorrect snapshot of state 
 
 Module 49. Closer look at the 'useState' hook...
     'useState' registers some 'value' as a new state for the component in which it is being called.
