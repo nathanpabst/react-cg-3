@@ -1,5 +1,12 @@
 _______Section 4 notes: React State & Working with Events__________
-Module 55. 
+
+Module 56. Handling Form Submission
+    To capture all of the data within the form, we add type="submit" to the button and add the onSubmit() event in the opening <Form> tag. 
+    The default browser behavior for the onSubmit() function is to send a request to the server and re-load the page.
+    To disable this default behavior (i.e. prevent the page from re-loading when the submit button is pressed), we use 
+    the preventDefault() method.  
+
+Module 55. Updating State that depends on the previous state...
     IMPORTANT: Whenever you need to update state and are dependant upon the value of the previous state, use the following syntax. 
     This is the best practice because React guarantees that the state snapshot will always be the latest version (considering all scheduled state updates)
     setUserInput((prevState) => {
