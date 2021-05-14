@@ -2,8 +2,22 @@ _______Section 4 notes: React State & Working with Events__________
     
 
 Module 58. Child-to-Parent Component Communication (bottom-up)...
-    Pass expense data to the new expense component...
-        1. add a new prop to ExpenseForm (within the NewExpense component)
+    For example, the onChange prop--within an input element--takes a function as a value and adds an event listener 
+        to the rendered input element. We can replicate this pattern, in our own components, to achieve child-to-parent communication. 
+        i.e. we create our own event props which expect functions as values which will allow us to pass a function from a parent to a 
+            child component and then call that function from inside the child component. When we call the function, we can pass data 
+            back to that function as a parameter.    
+    Props can only be passed from parent to child. we can't skip intermediate components. current flow of data...ExpenseForm -> NewExpense -> App.js
+        We need to pass the data collected in ExpenseForm up to App.js, but cannot skip over NewExpense--which in this case is our intermediate component. 
+        Soooo...we pass the expense data from the ExpenseForm component to the NewExpense component and then finally the App.js component...
+        Steps to communicate from ExpenseForm to NewExpense...
+            1. add a prop to the ExpenseForm (within the NewExpense file) with a name like 'onSaveExpenseData' 
+            2. create a function named 'saveExpenseDataHandler' that will be triggered when something happens inside the component.
+                (i.e. the user saves the data/clicks the submit button on the form) 
+            3. call the function in the ExpenseForm file by adding props and updating the handler method 
+        Steps to communicate from NewExpense to App.js...
+            1. add a function in App.js file named 'addExpenseHandler' and add a pointer to this function in the NewExpense component (called in App.js)
+            2. in the NewExpense file, add props
 
 
 Module 57. Two-Way Binding...
