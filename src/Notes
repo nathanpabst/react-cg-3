@@ -1,6 +1,22 @@
 _______Section 4 notes: React State & Working with Events__________
     
 
+Module 59. Lifting State Up...
+    Current Tree structure...Expenses -> App.js <- NewExpense  <- ExpenseForm
+    Our Data/State is being generated in the NewExpense component.
+    This Data/State will be needed in the Expenses component. 
+    Because there is no direct link between the 'NewExpense' and 'Expense' components (which are considered sibling components), 
+        we need to pass the generated data up to the App.js file...before we can pass the data down to the Expense component. 
+    We can only communicate from parent to child & from child to parent. The App component has access to both child components 
+        (Expenses & NewExpense) because it renders both components in its returned JSX code. soooo...we lift state/data up from 
+        the NewExpense component and store it in the App component. This is accomplished by utilizing props...by calling the 
+        function we receive on the 'onAddExpense' prop and passing data to the function.  
+    The goal is to lift the state up only to the level, of the component tree, in which it will be needed. 
+    ...i.e. we lift the state up just as high as necessary in the component tree until you reach the component which has access
+    to the component that generates data and the component that needs the data 
+    NOTE: the 'parent component' will not always be App.js.
+
+
 Module 58. Child-to-Parent Component Communication (bottom-up)...
     For example, the onChange prop--within an input element--takes a function as a value and adds an event listener 
         to the rendered input element. We can replicate this pattern, in our own components, to achieve child-to-parent communication. 
