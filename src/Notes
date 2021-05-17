@@ -1,5 +1,11 @@
 _______Section 4 notes: React State & Working with Events__________
     
+Assignment 2: Working with events and state...
+- add an ExpenseFilter component
+- add an event listener to the dropdown box
+when change occurs...a value is selected, inform/forward the selected year to the expenses component   
+add the ExpenseFilter component in Expenses & store the value in state 
+
 
 Module 59. Lifting State Up...
     Current Tree structure...Expenses -> App.js <- NewExpense  <- ExpenseForm

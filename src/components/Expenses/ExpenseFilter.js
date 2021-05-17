@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ExpensesFilter.css';
+import './ExpenseFilter.css';
 
-const ExpensesFilter = () => {
+const ExpenseFilter = () => {
   return (
     <div className='expenses-filter'>
       <div className='expenses-filter__control'>
@@ -18,4 +18,4 @@ const ExpensesFilter = () => {
   );
 };
 
-export default ExpensesFilter;
+export default ExpenseFilter;

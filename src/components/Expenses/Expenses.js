@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ExpenseItem from './ExpenseItem';
-import ExpensesFilter from './ExpenseFilter';
+import ExpenseFilter from './ExpenseFilter';
 import Card from '../UI/Card';
 
 import './Expenses.css';
@@ -9,7 +9,7 @@ import './Expenses.css';
 const Expenses = (props) => {
   return (
     <div>
-      <ExpensesFilter />
+      <ExpenseFilter />
       <Card className='expenses'>
         <ExpenseItem
           title={props.items[0].title}
