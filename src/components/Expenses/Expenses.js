@@ -7,9 +7,18 @@ import Card from '../UI/Card';
 import './Expenses.css';
 
 const Expenses = (props) => {
+  const saveFilteredYearHandler = (enteredYearData) => {
+    const yearData = {
+      ...enteredYearData,
+      id: Math.random().toString(),
+    };
+
+    console.log('from expenses: year selected', yearData);
+  };
+
   return (
     <div>
-      <ExpenseFilter />
+      <ExpenseFilter onSaveYearData={saveFilteredYearHandler}/>
       <Card className='expenses'>
         <ExpenseItem
           title={props.items[0].title}

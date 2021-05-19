@@ -4,6 +4,13 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
+  const years = [
+    { id: 'y1', year: 2019 },
+    { id: 'y2', year: 2020 },
+    { id: 'y3', year: 2021 },
+    { id: 'y4', year: 2022 },
+  ];
+
   const expenses = [
     {
       id: 'e1',
@@ -31,10 +38,15 @@ const App = () => {
     console.log(expense);
   };
 
+  const addYearDataHandler = (year) => {
+    console.log('in app.js');
+    console.log(year);
+  };
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expenses} years={years} />
     </div>
   );
 };
