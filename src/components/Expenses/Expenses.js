@@ -7,19 +7,19 @@ import Card from '../UI/Card';
 import './Expenses.css';
 
 const Expenses = (props) => {
-  const saveFilteredYearHandler = (enteredYearData) => {
-    const yearData = {
-      ...enteredYearData,
-      id: Math.random().toString(),
-    };
+  // const saveFilteredYearHandler = (enteredYearData) => {
+  //   const yearData = {
+  //     ...enteredYearData,
+  //     id: Math.random().toString(),
+  //   };
 
-    console.log('from expenses: year selected', yearData);
-  };
+  //   console.log('from expenses: year selected', yearData);
+  // };
 
   return (
     <div>
-      <ExpenseFilter onSaveYearData={saveFilteredYearHandler}/>
       <Card className='expenses'>
+        <ExpenseFilter />
         <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
