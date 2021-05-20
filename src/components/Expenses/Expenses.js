@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ExpenseItem from './ExpenseItem';
 import ExpenseFilter from './ExpenseFilter';
@@ -7,22 +7,19 @@ import Card from '../UI/Card';
 import './Expenses.css';
 
 const Expenses = (props) => {
-  const filterChangeHandler = selectedYear => {
-    console.log('from expenses: year selected', selectedYear);
-  };
-  // const saveFilteredYearHandler = (enteredYearData) => {
-  //   const yearData = {
-  //     ...enteredYearData,
-  //     id: Math.random().toString(),
-  //   };
+  const [filteredYear, setFilteredYear] = useState('2021');
 
-  //   console.log('from expenses: year selected', yearData);
-  // };
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  };
 
   return (
     <div>
       <Card className='expenses'>
-        <ExpenseFilter onChangeFilter={filterChangeHandler}/>
+        <ExpenseFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
         <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
@@ -49,5 +46,3 @@ const Expenses = (props) => {
 };
 
 export default Expenses;
-
-// Keep the expenses data in the App component and pass that data into the newly created component
