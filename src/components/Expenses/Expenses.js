@@ -7,6 +7,9 @@ import Card from '../UI/Card';
 import './Expenses.css';
 
 const Expenses = (props) => {
+  const filterChangeHandler = selectedYear => {
+    console.log('from expenses: year selected', selectedYear);
+  };
   // const saveFilteredYearHandler = (enteredYearData) => {
   //   const yearData = {
   //     ...enteredYearData,
@@ -19,7 +22,7 @@ const Expenses = (props) => {
   return (
     <div>
       <Card className='expenses'>
-        <ExpenseFilter />
+        <ExpenseFilter onChangeFilter={filterChangeHandler}/>
         <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
