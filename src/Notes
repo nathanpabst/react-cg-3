@@ -1,11 +1,22 @@
 _______Section 4 notes: React State & Working with Events__________
     
 Assignment 2: Working with events and state...
-- add an ExpenseFilter component --done 
-- add an event listener to the dropdown box
-when change occurs...a value is selected, inform/forward the selected year to the expenses component   
-add the ExpenseFilter component in Expenses & store the value in state 
-
+- add an ExpenseFilter component (.js & .css) --COMPLETED
+within the ExpenseFilter.js file...
+- import the .css file
+- create a function called 'dropdownChangeHandler' which will accept an 'event' as a parameter
+- asign the dropdownChangeHandler function to the onChange pointer in the JSX 
+- console.log(event.target.value) to ensure the change handler is working as expected  
+- add the 'onChange' event listener to the dropdown 'select' box
+Inform/forward the selected year to the Expenses component:
+...within the Expenses.js file...
+- add an import statement for ExpenseFilter
+- add a reference to the ExpenseFilter component within the JSX code
+- write a function called 'filterChangeHandler' to receive the 'selectedYear' from the ExpenseFilter component 
+    and set the value to state. 
+- add the useState variable to store the value
+- add a pointer called 'onChangeFilter' to call the filterChangeHandler method 
+- back in the ExpenseFilter file, add props.
 
 Module 59. Lifting State Up...
     Current Tree structure...Expenses -> App.js <- NewExpense  <- ExpenseForm
