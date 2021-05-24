@@ -1,3 +1,145 @@
+_______Section 4 notes: React State & Working with Events__________
+Module 60. Controlled vs Uncontrolled Components & Stateless vs Stateful Components
+    Controlled components have two-way-binding...a value is passed on to the parent component through props 
+        and is received by the parent component. the real logic resides in the parent component. 
+    Stateful components manage state and pass info/data as needed to other components. 
+    Stateless or presentational or dumb components (like expenseItem.js) do not have an internal state.
+        these components are only used to output data. 
+
+Assignment 2: Working with events and state...
+- add an ExpenseFilter component (.js & .css) --COMPLETED
+within the ExpenseFilter.js file...
+- import the .css file
+- create a function called 'dropdownChangeHandler' which will accept an 'event' as a parameter
+- asign the dropdownChangeHandler function to the onChange pointer in the JSX 
+- console.log(event.target.value) to ensure the change handler is working as expected  
+- add the 'onChange' event listener to the dropdown 'select' box
+Inform/forward the selected year to the Expenses component:
+...within the Expenses.js file...
+- add an import statement for ExpenseFilter
+- add a reference to the ExpenseFilter component within the JSX code
+- write a function called 'filterChangeHandler' to receive the 'selectedYear' from the ExpenseFilter component 
+    and set the value to state. 
+- add the useState variable to store the value
+- add a pointer called 'onChangeFilter' to call the filterChangeHandler method 
+- back in the ExpenseFilter file, add props.
+
+Module 59. Lifting State Up...
+    Current Tree structure...Expenses -> App.js <- NewExpense  <- ExpenseForm
+    Our Data/State is being generated in the NewExpense component.
+    This Data/State will be needed in the Expenses component. 
+    Because there is no direct link between the 'NewExpense' and 'Expense' components (which are considered sibling components), 
+        we need to pass the generated data up to the App.js file...before we can pass the data down to the Expense component. 
+    We can only communicate from parent to child & from child to parent. The App component has access to both child components 
+        (Expenses & NewExpense) because it renders both components in its returned JSX code. soooo...we lift state/data up from 
+        the NewExpense component and store it in the App component. This is accomplished by utilizing props...by calling the 
+        function we receive on the 'onAddExpense' prop and passing data to the function.  
+    The goal is to lift the state up only to the level, of the component tree, in which it will be needed. 
+    ...i.e. we lift the state up just as high as necessary in the component tree until you reach the component which has access
+    to the component that generates data and the component that needs the data 
+    NOTE: the 'parent component' will not always be App.js.
+
+
+Module 58. Child-to-Parent Component Communication (bottom-up)...
+    For example, the onChange prop--within an input element--takes a function as a value and adds an event listener 
+        to the rendered input element. We can replicate this pattern, in our own components, to achieve child-to-parent communication. 
+        i.e. we create our own event props which expect functions as values which will allow us to pass a function from a parent to a 
+            child component and then call that function from inside the child component. When we call the function, we can pass data 
+            back to that function as a parameter.    
+    Props can only be passed from parent to child. we can't skip intermediate components. current flow of data...ExpenseForm -> NewExpense -> App.js
+        We need to pass the data collected in ExpenseForm up to App.js, but cannot skip over NewExpense--which in this case is our intermediate component. 
+        Soooo...we pass the expense data from the ExpenseForm component to the NewExpense component and then finally the App.js component...
+        Steps to communicate from ExpenseForm to NewExpense...
+            1. add a prop to the ExpenseForm (within the NewExpense file) with a name like 'onSaveExpenseData' 
+            2. create a function named 'saveExpenseDataHandler' that will be triggered when something happens inside the component.
+                (i.e. the user saves the data/clicks the submit button on the form) 
+            3. call the function in the ExpenseForm file by adding props and updating the handler method 
+        Steps to communicate from NewExpense to App.js...
+            1. add a function in App.js file named 'addExpenseHandler' and add a pointer to this function in the NewExpense component (called in App.js)
+            2. in the NewExpense file, add props
+
+
+Module 57. Two-Way Binding...
+    For inputs...we listen for changes and are able to pass a new value back into the input to reset or change the input programmatically.
+    Example, when the form has been submitted...
+        1. we accept the user input and assign the value to state
+        2. and then we pass back a function to clear each form value.
+    To accomplish two-way binding, we add the 'value' attribute on the input and assign the value to state. then we pass back a function like
+    'setEnteredAmount('')' to clear the field.  
+
+Module 56. Handling Form Submission...
+    To capture all of the data within the form, we add type="submit" to the button and add the onSubmit() event in the opening <Form> tag. 
+    The default browser behavior for the onSubmit() function is to send a request to the server and re-load the page.
+    To disable this default behavior (i.e. prevent the page from re-loading when the submit button is pressed), we use 
+    the preventDefault() method.  
+
+Module 55. Updating State that depends on the previous state...
+    IMPORTANT: Whenever you need to update state and are dependant upon the value of the previous state, use the following syntax. 
+    This is the best practice because React guarantees that the state snapshot will always be the latest version (considering all scheduled state updates)
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
+     }); 
+     ...best practice because React schedules state updates (not instantly). sooooooo if you are not using the anonymous arrow function syntax/example, and 
+     schedule several state updates at the same time, you could be depending on an outdated or incorrect snapshot of state 
+
+Module 49. Closer look at the 'useState' hook...
+    'useState' registers some 'value' as a new state for the component in which it is being called.
+    More specifically...React registers or assigns a unique state value for each component instance. 
+    Each instance of a component has its own unique definition of state, which is detached from the state values 
+    of all the other component instances. For example, we have one definition of the 'ExpenseItem' component,
+    the function will be called 4 times (as per instruction within the Expenses.js file). Each time the function is called,
+    a new and separate definition of state is created and managed independently by React. When a user interacts with the UI 
+    to modify the value of a component instance--via a click event listener--only the definition of state/value for this particular 
+    instance will be updated...the state values for each of the remaining instances will remain un-changed. 
+    Additionally, because 'state' is changed on a per component/instance basis, whenever the state of one component instance 
+    changes...React will only update and re-evaluate that specific instance.
+    When using the 'useState' function, we do not assign a value using the '=' operator (so using the 'const' keyword...iso'kay)
+    ...we call the state updating function. react is managing the concrete value somewhere else. 
+    ...React keeps track of the instance of 'useState' within each component...when useState is called for the first time
+    ...the argument, which in this case is '(props.title)', is taken as the initial value
+    ...if the component is re-executed...react will not re-initialize the state
+    ...react detects that 'state' was initialized in the past and will grab/return the latest version of state
+    ...sooooooo the '(props.title)' argument inserted into the useState() function is only considered the first time a component 
+    instance is executed.
+    Simply put...you register a state value with the 'useState()' function
+    ...the 'useState()' function returns two values...the value itself and an updating function.
+    ...the updating function will be called whenever the state value should change 
+    ...and you use the first element/value when you want to use the state value as output in the JSX code. 
+    ...React will do the rest...it will re-execute the component function and re-evaluate the JSX code whenever the state changes. 
+    ...Sans 'state', the UI will never change. 
+    ...By using 'state' and event listeners, we ensure that the application can respond to user input and will result in a 
+    visible update change on the screen.    
+    More info on State and lifecycle methods: https://reactjs.org/docs/state-and-lifecycle.html
+    More info on the 'useState' hook: https://reactjs.org/docs/hooks-reference.html#usestate
+
+
+Module 48. Working with State...
+    To prompt react to re-render/re-evaluate a component, we import the 'useState' function which is 
+    provided by the react library. EX. import React, {useState} from 'react'; --a.k.a. a react hook
+    All react hooks start with the prefix 'use...' and must be called within the component function 
+    (NOTE...hooks should not be used within nested functions). the useState function allows the component 
+    to be called again and to assign values as 'state', when we call the function. useState returns an 
+    array containing the variable/value and an updating function. We use array destructing to accomplish this.
+    EX. const [title, setTitle] = useState(props.title) --order matters here...'title' is the managed value 
+    the second element is a function that we use to set the updated state value. 
+    Use the concept of 'state', if you have data which may change and will need to be reflected in the UI.
+    With state you can set and change values and when you change values, (unlike a variable) React will re-evaluate the component
+    in which the state was registered. 
+
+Module 47. How Component Functions are Executed...
+    Components are regular functions that return JSX. Functions must be called. We use these functions
+    like HTML elements in the JSX code. Using a component, within the return statement, is similar to a 
+    function call. By using components in JSX code, we make react aware of the component functions. when
+    react evaluates the JSX code it will call each component function and evaluate its JSX code until all 
+    of the code has been called/evaluated. It then react evaluates the overall result and translates it to 
+    DOM instructions which then render on the screen. 
+    React starts with the index.js file (reactDOM.render(<App />, document.getElementById('root')))
+    This is all done when the application is initially rendered...it doesn't repeat itself. In order to update
+    or re-render a component, we use the concept of 'State'. 
+
+Module 46. HTML Button Element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button 
+
+_______Section 3 notes: React Basics & Working with Components__________
 Section 43. Alternative Function Syntax (arrow functions)...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 EX. syntax: const App = () => {}
