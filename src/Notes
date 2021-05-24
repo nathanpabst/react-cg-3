@@ -1,5 +1,11 @@
 _______Section 4 notes: React State & Working with Events__________
-    
+Module 60. Controlled vs Uncontrolled Components & Stateless vs Stateful Components
+    Controlled components have two-way-binding...a value is passed on to the parent component through props 
+        and is received by the parent component. the real logic resides in the parent component. 
+    Stateful components manage state and pass info/data as needed to other components. 
+    Stateless or presentational or dumb components (like expenseItem.js) do not have an internal state.
+        these components are only used to output data. 
+
 Assignment 2: Working with events and state...
 - add an ExpenseFilter component (.js & .css) --COMPLETED
 within the ExpenseFilter.js file...
