@@ -1,3 +1,24 @@
+_______Section 5 notes: Rendering Lists & Conditional Content__________
+Module 64. Using Stateful Lists...
+    Steps to updating the expenses array in App.js whenever a new item is added...
+        Step 1. In App.js, import useState
+        Step 2. Extract the expenses array outside of the component. see INITIAL_EXPENSES in App.js
+        Step 3. Call useState and pass INITIAL_EXPENSES
+        Step 4. Call setExpenses inside the addExpenseHandler function to update the state using the previous state snapshot
+        
+Module 63. Rendering Lists of data...
+    Adding the logic to render our ExpenseItems dynamically...
+        Currently our list of expenses is hard-coded and rendered by individual adding the ExpenseItem elements in the JSX code. 
+            To render the expenses that are defined in App.js in the Expenses.js component...
+            Step 1. pass the expenses down via props
+            Step 2. render/output one item per element in the array...
+                add '{}' in Expenses.js component to execute a dynamic JS expression in our JSX code. 
+                ...i.e. reach out to the array of data (the expenses array) and create a JSX element 
+                    for each element using map(). array.prototype.map() will create a new array based on another array and transforms 
+                      each element in the original array. map() takes a function as an argument and executes that function for each item
+                      in the array (and takes each item as a parameter). see map example in Expenses.js.
+            Step 3. remove the hard-coded ExpenseItems in Expenses.js.    
+
 _______Section 4 notes: React State & Working with Events__________
 Module 60. Controlled vs Uncontrolled Components & Stateless vs Stateful Components
     Controlled components have two-way-binding...a value is passed on to the parent component through props 
