@@ -1,4 +1,17 @@
 _______Section 5 notes: Rendering Lists & Conditional Content__________
+Module 65. Understanding 'Keys'...
+What's happening...'Warning: Each child in a list should have a unique "key" prop.'... 
+When a new expense is added (without a key in place)...React renders the new object as the last item in the list of divs, then it will update all items 
+    and replaces their content so that the new list matches the array. without a unique identifier in place, React only notices a change in the length 
+    of the array. Adding a 'key' improves the performance of the app because React will no longer have to update each list item in the array (only new 
+    additions & it will reduce the risk of bugs occurring). For example, if the list is stateful and a new expense is added, the first item in the list 
+    in the stateful list will be overwritten by the newly added item (i.e. any state changes we may have had will be lost). 
+    without a unique key in place, React simply checks the length of the array and the number of items that have already been rendered on the page. 
+    Each item in the list will look similar to React. The 'key' is used to help react understand where new items should be added within the list/array.
+    To fix this, we add the 'key' prop to place where we are outputting each expense item. (in this case, the Expenses.js file).
+    A 'key' is essentially a unique value which is assigned to each individual item.      
+       
+   
 Module 64. Using Stateful Lists...
     Steps to updating the expenses array in App.js whenever a new item is added...
         Step 1. In App.js, import useState
