@@ -1,4 +1,20 @@
 _______Section 5 notes: Rendering Lists & Conditional Content__________
+Filter by year...
+hints...filter() & map() methods. do not change the overall array. use a subset. 
+when a user selects a year...
+    - capture the input
+    - filter through the array of expenses 
+    - create a new/temporary array for the selected years expenses
+    - display the filtered list of expense items
+    - clear the filter on refresh  
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    ...see searching in an array section. 
+    sudo code...
+    const years = [2021,2020,2019,2018, ...]; // make a copy of the years array and save to a new variable 
+    const result = years.filter(year => year.date = givenYear); //target the year portion of the date object
+    console.log(result); // ensure the appropriate response is returned
+
 Module 65. Understanding 'Keys'...
 What's happening...'Warning: Each child in a list should have a unique "key" prop.'... 
 When a new expense is added (without a key in place)...React renders the new object as the last item in the list of divs, then it will update all items 
