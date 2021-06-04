@@ -2,11 +2,16 @@ _______Section 5 notes: Rendering Lists & Conditional Content__________
 Filter by year...
 hints...filter() & map() methods. do not change the overall array. use a subset. 
 when a user selects a year...
-    - capture the input
-    - filter through the array of expenses 
-    - create a new/temporary array for the selected years expenses
-    - display the filtered list of expense items
-    - clear the filter on refresh  
+    - capture the input ('selected' prop ExpenseFilter.js via Expenses.js) the default value, defined via the filteredYear variable, is 2021. 
+    - filter through the array of expenses using props.items in Expenses.js 
+    - create a new/temporary array for the selected years expenses - no state change necessary...the filter() method creates a new array.
+    - create a new variable called filteredExpenses set equal to props.items.filter()  
+    - pass a function to the filter method, which will return true or false, to store the appropriate expenses. 
+    - check the date to determine if the date object contains the selected year. i.e. if the year selected matches the filteredYear it will 
+        be added/stored in the filteredExpenses array. `return expense.date.getFullYear().toString() === filteredYear`    
+    - display the filtered list of expense items - replace props.items.map() in the JSX code with filteredExpenses.map()
+    - clear the filter on refresh - not needed...the expense item list will update when a year is selected or show 2021 expenses by default. 
+    NOTE: don't think too hard...all that is needed to accomplish this task is a simple transformation using JavaScript. 
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
     ...see searching in an array section. 
