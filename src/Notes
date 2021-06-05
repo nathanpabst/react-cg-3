@@ -1,4 +1,50 @@
 _______Section 5 notes: Rendering Lists & Conditional Content__________
+
+Module 66. Outputting conditional content...
+    NOTE: you cannot include if/else OR foreach statements in the JSX section. 
+    Option 1: Ternary operator syntax = condition, question mark (?), what to do if the 
+        condition is met, colon (:) for the else case, and what to do if the 
+        condition is not met. Ternary operators can be long and hard to read.
+    Example code: 
+        {filteredExpenses.length === 0 ? (
+            <p>No expenses found.</p>
+            ) : (
+            filteredExpenses.map((expenses) => (
+                <ExpenseItem
+                key={expenses.id}
+                title={expenses.title}
+                amount={expenses.amount}
+                date={expenses.date}
+                />
+            ))
+            )}
+    
+    Option 2: The AND operator (&&) syntax...
+        If the first condition is met, the code after the && operator will be 
+            executed/returned/rendered. The AND operator allows you to write shorter 
+            expressions. 
+    Example code:
+        {filteredExpenses.length === 0 && <p>No expenses found.</p>} 
+    
+    Option 3: Create a variable to reduce the amount of code written with in the JSX section 
+    Example code:
+        let expensesContent = <p>No expenses found.</p>;
+
+        if (filteredExpenses.length > 0) {
+            expensesContent = filteredExpenses.map((expenses) => (
+            <ExpenseItem
+                key={expenses.id}
+                title={expenses.title}
+                amount={expenses.amount}
+                date={expenses.date}
+            />
+            ));
+        }
+
+        ...then return/point to the {expensesContent} variable in the JSX
+
+
+Assignment 3:
 Filter by year...
 hints...filter() & map() methods. do not change the overall array. use a subset. 
 when a user selects a year...
