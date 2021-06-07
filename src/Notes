@@ -1,5 +1,9 @@
 _______Section 5 notes: Rendering Lists & Conditional Content__________
 
+Module 67. Adding Conditional Return Statements...
+    Restructuring the Expenses component: 
+       - Create an ExpensesList.js and .css file to handle the list logic. 
+
 Module 66. Outputting conditional content...
     NOTE: you cannot include if/else OR foreach statements in the JSX section. 
     Option 1: Ternary operator syntax = condition, question mark (?), what to do if the 
