@@ -1,5 +1,12 @@
 _______Section 5 notes: Rendering Lists & Conditional Content__________
 
+Assignment 4: Conditional Content...
+    Objectives: 
+        - Add an 'add expense' button and render the button as the default behavior 
+        - Register a state for the form (i.e. show expense form OR show the add expense button)
+        - Add a 'cancel' button to the 'add expense' form.  
+        - hide the 'add expense' form until the 'add expense' or 'cancel' button is clicked 
+
 Module 67. Adding Conditional Return Statements...
     Restructuring the Expenses component: 
        - Create an ExpensesList.js and .css file to handle the list logic. 
