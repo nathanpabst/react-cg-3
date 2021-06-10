@@ -4,13 +4,33 @@ Assignment 4: Conditional Content...
     commit from GitHub: https://github.com/nathanpabst/react-cg-3/commit/15873780d90657beb504f15a62249892308e9941 
     
     Objectives: 
-        - Add a button called 'add expense' within the JSX code in the NewExpense.js file 
-        - When the 'add expense' button is clicked, the add expense form should be shown.
-            1. Register a state for the form in the NewExpense.js file (i.e. true or false to inform React to display the expense form OR to display the add expense button)
-                By default the state value should be to display the 'add expense' button. Set state to 'isEditing(false)'
+        Add a button called 'add expense' within the JSX code in the NewExpense.js file 
+            Notes/Test Cases:
+                The default state value should be to display the 'add expense' button. 
+                When the 'add new expense' button is clicked...
+                    - the add expense form should be shown 
+                    - the 'add new expense' button should be hidden.
+                When the cancel or submit button is clicked...
+                    - the add new expense button should be displayed
+                    - the expense form should be hidden 
+                
+            Actions: 
+                1. Add a button named 'Add New Expense'
+                1. Register a state value in the NewExpense.js file (i.e. true or false to inform React to display the 
+                    expense form OR to display the add expense button)
+                    - import 'useState' in the using statements
+                    - create a state updating function to handle state change & set the initial state value to 'isEditing(false)'
+                    - create a function called 'startEditingHandler' which will switch setIsEditing to 'true' 
+                    - add the onClick prop to the 'add new expense' button & point to the startEditingHandler function when the button is clicked.
+
+                2. Use the isEditing state to control which element is shown (the button or the form)
+                
+                3. When the form is submitted or cancelled, 
+                
                 When the 'add new expense' button is clicked, set state equal to isEditing(true)
-        - Add a 'cancel' button to the 'add expense' form.  
-        - hide the 'add expense' form until the 'add expense' or 'cancel' button is clicked 
+        Add a 'cancel' button to the 'add expense' form.  
+            - When the form is submitted or the cancel button is pressed, the form should be hidden and the 'add new expense' button should be visible
+        
     
 Module 67. Adding Conditional Return Statements...
     Restructuring the Expenses component: 
