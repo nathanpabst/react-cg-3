@@ -10,28 +10,37 @@ Assignment 4: Conditional Content...
                 When the 'add new expense' button is clicked...
                     - the add expense form should be shown 
                     - the 'add new expense' button should be hidden.
-                When the cancel or submit button is clicked...
-                    - the add new expense button should be displayed
-                    - the expense form should be hidden 
                 
             Actions: 
                 1. Add a button named 'Add New Expense'
-                1. Register a state value in the NewExpense.js file (i.e. true or false to inform React to display the 
+                2. Register a state value in the NewExpense.js file (i.e. true or false to inform React to display the 
                     expense form OR to display the add expense button)
                     - import 'useState' in the using statements
                     - create a state updating function to handle state change & set the initial state value to 'isEditing(false)'
-                    - create a function called 'startEditingHandler' which will switch setIsEditing to 'true' 
-                    - add the onClick prop to the 'add new expense' button & point to the startEditingHandler function when the button is clicked.
-
-                2. Use the isEditing state to control which element is shown (the button or the form)
+                    - create a function called 'startEditingHandler', in the NewExpense component, 
+                        which will switch setIsEditing to 'true' 
+                    - add the onClick prop to the 'add new expense' button & point to the startEditingHandler function, 
+                        which will open the form, when the button is clicked.
+                3. Use the isEditing state to control which element is shown (the button or the form) 
+                    via dynamic expressions in the JSX code
                 
-                3. When the form is submitted or cancelled, 
+        Add a 'cancel' button, within the JSX code in the ExpenseForm.js file 
+            Notes/Test Cases:
+                When the expense form is submitted or the cancel button is clicked...
+                    - the form should be hidden (resetting state to isEditing(false))
+                    - the 'add new expense' button should be visible
+            Actions: 
+                1. In the ExpenseForm component...
+                    - add a button named 'Cancel' 
+                    - set the type equal to 'button', so that it does not submit the form when clicked 
+                    - add the onClick prop to the 'cancel' button & point to the stopEditingHandler function
+                        which will close the form, when the button is pressed. i.e. `onClick={props.onCancel}`
+                2. In the NewExpense component...
+                    - create a function called `stopEditingHandler` which will switch the state (setIsEditing) back to 'false'
+                    - pass a pointer down to the ExpenseForm component. i.e. `onCancel={stopEditingHandler}`
+                    - in the saveExpenseDataHandler function...set `setIsEditing(false) to close the form once 
+                        a new expense has been submitted.  
                 
-                When the 'add new expense' button is clicked, set state equal to isEditing(true)
-        Add a 'cancel' button to the 'add expense' form.  
-            - When the form is submitted or the cancel button is pressed, the form should be hidden and the 'add new expense' button should be visible
-        
-    
 Module 67. Adding Conditional Return Statements...
     Restructuring the Expenses component: 
        - Create an ExpensesList.js and .css file to handle the list logic. 
