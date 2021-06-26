@@ -12,7 +12,6 @@ Module 68. Adding a Chart
     - when the Chart component is being used we want to receive the data points that should be plotted for the Chart as props.
         this will ensure that the Chart component is fairly configurable and the components that use Chart can decide how many data 
         points and which values should be rendered. 
-    - 
 
 Assignment 4: Conditional Content...
     commit from GitHub: https://github.com/nathanpabst/react-cg-3/commit/15873780d90657beb504f15a62249892308e9941 
