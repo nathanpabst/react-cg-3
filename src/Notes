@@ -1,3 +1,162 @@
+_______Section 5 notes: Rendering Lists & Conditional Content__________
+
+Module 68. Adding a Chart
+    - create a folder called Chart
+    - add a Chart.js and Chart.css files
+    - add a ChartBar.js and ChartBar.css files
+    - import statements (referencing react, components needed, and the css file)
+    - export the component
+    - create the functional component & render the ChartBars
+    - import the ChartBar component
+    - return the JSX code for ChartBar
+    - when the Chart component is being used we want to receive the data points that should be plotted for the Chart as props.
+        this will ensure that the Chart component is fairly configurable and the components that use Chart can decide how many data 
+        points and which values should be rendered. 
+
+Assignment 4: Conditional Content...
+    commit from GitHub: https://github.com/nathanpabst/react-cg-3/commit/15873780d90657beb504f15a62249892308e9941 
+    
+    Objectives: 
+        Add a button called 'add expense' within the JSX code in the NewExpense.js file 
+            Notes/Test Cases:
+                The default state value should be to display the 'add expense' button. 
+                When the 'add new expense' button is clicked...
+                    - the add expense form should be shown 
+                    - the 'add new expense' button should be hidden.
+                
+            Actions: 
+                1. Add a button named 'Add New Expense'
+                2. Register a state value in the NewExpense.js file (i.e. true or false to inform React to display the 
+                    expense form OR to display the add expense button)
+                    - import 'useState' in the using statements
+                    - create a state updating function to handle state change & set the initial state value to 'isEditing(false)'
+                    - create a function called 'startEditingHandler', in the NewExpense component, 
+                        which will switch setIsEditing to 'true' 
+                    - add the onClick prop to the 'add new expense' button & point to the startEditingHandler function, 
+                        which will open the form, when the button is clicked.
+                3. Use the isEditing state to control which element is shown (the button or the form) 
+                    via dynamic expressions in the JSX code
+                
+        Add a 'cancel' button, within the JSX code in the ExpenseForm.js file 
+            Notes/Test Cases:
+                When the expense form is submitted or the cancel button is clicked...
+                    - the form should be hidden (resetting state to isEditing(false))
+                    - the 'add new expense' button should be visible
+            Actions: 
+                1. In the ExpenseForm component...
+                    - add a button named 'Cancel' 
+                    - set the type equal to 'button', so that it does not submit the form when clicked 
+                    - add the onClick prop to the 'cancel' button & point to the stopEditingHandler function
+                        which will close the form, when the button is pressed. i.e. `onClick={props.onCancel}`
+                2. In the NewExpense component...
+                    - create a function called `stopEditingHandler` which will switch the state (setIsEditing) back to 'false'
+                    - pass a pointer down to the ExpenseForm component. i.e. `onCancel={stopEditingHandler}`
+                    - in the saveExpenseDataHandler function...set `setIsEditing(false) to close the form once 
+                        a new expense has been submitted.  
+                
+Module 67. Adding Conditional Return Statements...
+    Restructuring the Expenses component: 
+       - Create an ExpensesList.js and .css file to handle the list logic. 
+
+Module 66. Outputting conditional content...
+    NOTE: you cannot include if/else OR foreach statements in the JSX section. 
+    Option 1: Ternary operator syntax = condition, question mark (?), what to do if the 
+        condition is met, colon (:) for the else case, and what to do if the 
+        condition is not met. Ternary operators can be long and hard to read.
+    Example code: 
+        {filteredExpenses.length === 0 ? (
+            <p>No expenses found.</p>
+            ) : (
+            filteredExpenses.map((expenses) => (
+                <ExpenseItem
+                key={expenses.id}
+                title={expenses.title}
+                amount={expenses.amount}
+                date={expenses.date}
+                />
+            ))
+            )}
+    
+    Option 2: The AND operator (&&) syntax...
+        If the first condition is met, the code after the && operator will be 
+            executed/returned/rendered. The AND operator allows you to write shorter 
+            expressions. 
+    Example code:
+        {filteredExpenses.length === 0 && <p>No expenses found.</p>} 
+    
+    Option 3: Create a variable to reduce the amount of code written with in the JSX section 
+    Example code:
+        let expensesContent = <p>No expenses found.</p>;
+
+        if (filteredExpenses.length > 0) {
+            expensesContent = filteredExpenses.map((expenses) => (
+            <ExpenseItem
+                key={expenses.id}
+                title={expenses.title}
+                amount={expenses.amount}
+                date={expenses.date}
+            />
+            ));
+        }
+
+        ...then return/point to the {expensesContent} variable in the JSX
+
+
+Assignment 3:
+Filter by year...
+hints...filter() & map() methods. do not change the overall array. use a subset. 
+when a user selects a year...
+    - capture the input ('selected' prop ExpenseFilter.js via Expenses.js) the default value, defined via the filteredYear variable, is 2021. 
+    - filter through the array of expenses using props.items in Expenses.js 
+    - create a new/temporary array for the selected years expenses - no state change necessary...the filter() method creates a new array.
+    - create a new variable called filteredExpenses set equal to props.items.filter()  
+    - pass a function to the filter method, which will return true or false, to store the appropriate expenses. 
+    - check the date to determine if the date object contains the selected year. i.e. if the year selected matches the filteredYear it will 
+        be added/stored in the filteredExpenses array. `return expense.date.getFullYear().toString() === filteredYear`    
+    - display the filtered list of expense items - replace props.items.map() in the JSX code with filteredExpenses.map()
+    - clear the filter on refresh - not needed...the expense item list will update when a year is selected or show 2021 expenses by default. 
+    NOTE: don't think too hard...all that is needed to accomplish this task is a simple transformation using JavaScript. 
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    ...see searching in an array section. 
+    sudo code...
+    const years = [2021,2020,2019,2018, ...]; // make a copy of the years array and save to a new variable 
+    const result = years.filter(year => year.date = givenYear); //target the year portion of the date object
+    console.log(result); // ensure the appropriate response is returned
+
+Module 65. Understanding 'Keys'...
+What's happening...'Warning: Each child in a list should have a unique "key" prop.'... 
+When a new expense is added (without a key in place)...React renders the new object as the last item in the list of divs, then it will update all items 
+    and replaces their content so that the new list matches the array. without a unique identifier in place, React only notices a change in the length 
+    of the array. Adding a 'key' improves the performance of the app because React will no longer have to update each list item in the array (only new 
+    additions & it will reduce the risk of bugs occurring). For example, if the list is stateful and a new expense is added, the first item in the list 
+    in the stateful list will be overwritten by the newly added item (i.e. any state changes we may have had will be lost). 
+    without a unique key in place, React simply checks the length of the array and the number of items that have already been rendered on the page. 
+    Each item in the list will look similar to React. The 'key' is used to help react understand where new items should be added within the list/array.
+    To fix this, we add the 'key' prop to place where we are outputting each expense item. (in this case, the Expenses.js file).
+    A 'key' is essentially a unique value which is assigned to each individual item.      
+       
+   
+Module 64. Using Stateful Lists...
+    Steps to updating the expenses array in App.js whenever a new item is added...
+        Step 1. In App.js, import useState
+        Step 2. Extract the expenses array outside of the component. see INITIAL_EXPENSES in App.js
+        Step 3. Call useState and pass INITIAL_EXPENSES
+        Step 4. Call setExpenses inside the addExpenseHandler function to update the state using the previous state snapshot
+        
+Module 63. Rendering Lists of data...
+    Adding the logic to render our ExpenseItems dynamically...
+        Currently our list of expenses is hard-coded and rendered by individual adding the ExpenseItem elements in the JSX code. 
+            To render the expenses that are defined in App.js in the Expenses.js component...
+            Step 1. pass the expenses down via props
+            Step 2. render/output one item per element in the array...
+                add '{}' in Expenses.js component to execute a dynamic JS expression in our JSX code. 
+                ...i.e. reach out to the array of data (the expenses array) and create a JSX element 
+                    for each element using map(). array.prototype.map() will create a new array based on another array and transforms 
+                      each element in the original array. map() takes a function as an argument and executes that function for each item
+                      in the array (and takes each item as a parameter). see map example in Expenses.js.
+            Step 3. remove the hard-coded ExpenseItems in Expenses.js.    
+
 _______Section 4 notes: React State & Working with Events__________
 Module 60. Controlled vs Uncontrolled Components & Stateless vs Stateful Components
     Controlled components have two-way-binding...a value is passed on to the parent component through props 
