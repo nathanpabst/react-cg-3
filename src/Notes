@@ -359,6 +359,34 @@ Module 29. Analyzing a standard React Project
     component, we must export the file in App.js and import it in this file (index.js) or the file in 
     which you plan to use the code. The index.html file takes instruction from the index.js file. The
     render method within index.js instructs the .html file to display the <App /> component in the 'root' div.
+Module 27. Creating a new React Project...
+    GitHub: https://github.com/facebook/create-react-app
+    React Documentation: https://create-react-app.dev/ 
+    Node.js: https://nodejs.org/en/ - a runtime for JS 
+
+    Step 1. go to node.js website and install/download/update. accept all of the default options offered in the installer
+    Step 2. open Git Bash and navigate to the proper directory using cd ... command 
+    Step 3. navigate to GitHub page for React, and follow the Quick Overview steps... 
+        a. npx create-react-app my-app 
+        b. cd my-app
+        c. npm start 
+    Step 4. using Git Bash navigate into the appropriate directory. in this case, 'my-app'
+    Step 5. open a terminal in VS Code and enter the 'npm start' command. This should open the local server automatically. If it does
+        not, you can type localhost:3000 manually  
+    Step 6. download, unzip, and open the file or navigate to: https://github.com/academind/react-complete-guide-code/tree/03-react-basics-working-with-components/code/01-starting-setup
+        and update the files
+    Step 7. close the server using the 'control c' command, open a new terminal window in VS code and run...
+        a. npm install 
+        b. npm start 
+
+Module 26. React is written in a declarative way...
+    How is a component built? By combining HTML, CSS, and JavaScript in each component and then combine
+        each component together with React to build a user interface. 
+    React & Components...
+        React allows you to create re-usable and reactive components consisting of HTML, CSS, and JS.
+        It uses a declarative approach for building these components. i.e. you define the desired end/target state(s) 
+            and allow React to figure out the actual JS DOM instructions. 
+
 Module 25. What are Components...
     React is a JS library for building user interfaces. HTML, CSS, & JS are also about building user interfaces.
         Difference...React makes building complex, interactive and reactive user interfaces simpler. less focus
@@ -376,13 +404,6 @@ Module 25. What are Components...
             each component should have one clear objective (one focus, one task). 
             Goal: small pieces of code that are easy to manage and maintain. 
             Split big chunks of code into multiple smaller functions.    
-Module 26. React is written in a declarative way...
-    How is a component built? By combining HTML, CSS, and JavaScript in each component and then combine
-        each component together with React to build a user interface. 
-    React & Components...
-        React allows you to create re-usable and reactive components consisting of HTML, CSS, and JS.
-        It uses a declarative approach for building these components. i.e. you define the desired end/target state(s) 
-            and allow React to figure out the actual JS DOM instructions. 
 
 Section 1. Getting Started 
     React vs vanilla JS example: https://github.com/academind/react-complete-guide-code/tree/01-getting-started/code/react-vs-vanilla-js-example
